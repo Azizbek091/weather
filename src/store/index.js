@@ -34,7 +34,7 @@ export default createStore({
     async getWeather(context,city) {
       city = city.trim()
       try {
-        let response = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${context.state.key}`)
+        let response = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${context.state.key}`)
         let coor = { ...response.data[0], city: city }
         context.dispatch('getWeatherInfo', coor)
       } catch (error) {
